@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mixin（混入）</title>
+  <script src="/vue.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    mixin 的实践
+    <my-component></my-component>
+  </div>
+
+  <script type="module">
+    import { myMixin } from './my-mixin.js'
+    import { myComponent } from './my-component.js'
+    let app = new Vue({
+      el: '#app',
+      component: { myComponent },
+      mixins: [myMixin],
+      created() {
+        console.log('app 运行了');
+        this.helloMixin('app');
+      }
+    })
+  </script>
+</body>
+
+</html>
