@@ -16,15 +16,21 @@
   </div>
 
   <script type="module">
+    // 引入一个自定义mixin合并的规则
+    import './mixin-config.js'
+    // 定义一个混入的对象
     import { myMixin } from './my-mixin.js'
+    // 引入一个组件，组件内使用了局部注册的mixin
     import { myComponent } from './my-component.js'
+    // 引入全局注册的mixin
+    // import './mixin.js'
     let app = new Vue({
-      el: '#app',
+      el: '#app', 
       component: { myComponent },
-      mixins: [myMixin],
+      // mixins: [myMixin],
       created() {
-        console.log('app 运行了');
-        this.helloMixin('app');
+        // console.log('app 运行了');
+        // this.helloMixin('app');
       }
     })
   </script>
